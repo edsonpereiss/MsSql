@@ -1,0 +1,51 @@
+Instalação do Mssql
+========================================
+docker compose ps
+docker-compose up -d
+docker-compose logs
+
+Re-Instalação do Mssql
+========================================
+docker-compose down
+docker-compose up -d
+docker-compose logs
+
+Comandos básicos
+========================================
+docker compose ps
+docker-compose stop
+docker-compose start
+docker-compose restart
+
+
+Entrar no Mssql
+========================================
+docker exec -it sql-server-db "bash"
+
+Logar e Entrar para Execução de Query
+========================================
+/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P password@123
+
+Executar Comandos (Somente exemplos para teste do banco)
+=================================================================
+select name from sys.Databases;
+go
+create database testdb;
+go
+select name from sys.Databases;
+go
+use testdb
+go
+create table users (id INT, name NVARCHAR(50), email NVARCHAR(255));
+go
+insert into users values(1, 'edson', 'edsonreis@apoioprodesp.sp.gov.br');
+select * from users;
+go
+
+Sair Execução de Query
+========================================
+CTRL + C
+
+Sair do Mssql
+========================================
+exit
